@@ -1,4 +1,4 @@
-package org.cytoscape.CytoCluster.internal;
+package org.cytoscape.DynamicCluster.internal.action;
 /*package org.cytoscape.myappViz.internal;
 import java.awt.event.ActionEvent;
 import org.cytoscape.application.CyApplicationManager;

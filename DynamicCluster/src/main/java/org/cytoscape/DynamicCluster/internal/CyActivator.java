@@ -1,31 +1,24 @@
 package org.cytoscape.DynamicCluster.internal;
 
-import org.cytoscape.DynamicCluster.internal.actions.*;
-import org.cytoscape.DynamicCluster.internal.taskfactories.*;
-
+import org.cytoscape.DynamicCluster.internal.action.*;
+import org.cytoscape.DynamicCluster.internal.task.*;
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.application.swing.CySwingApplication;
 import org.cytoscape.application.swing.CytoPanelComponent;
 import org.cytoscape.application.swing.CyAction;
-
 import org.cytoscape.event.CyEventHelper;
-
 import org.osgi.framework.BundleContext;
-
 import org.cytoscape.model.CyNetworkManager;
 import org.cytoscape.model.CyTableFactory;
 import org.cytoscape.model.subnetwork.CyRootNetworkManager;
-
 import org.cytoscape.service.util.AbstractCyActivator;
 import org.cytoscape.service.util.CyServiceRegistrar;
-
 import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.cytoscape.view.model.CyNetworkViewManager;
 import org.cytoscape.view.presentation.RenderingEngineFactory;
 import org.cytoscape.view.vizmap.VisualMappingFunctionFactory;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.view.vizmap.VisualStyleFactory;
-
 import org.cytoscape.work.TaskManager;
 
 import java.util.Properties;

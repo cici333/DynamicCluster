@@ -1,4 +1,4 @@
-package org.cytoscape.CytoCluster.internal;
+package org.cytoscape.DynamicCluster.internal.task;
 
 import java.util.Collection;
 import java.util.Iterator;

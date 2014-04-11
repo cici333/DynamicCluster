@@ -1,4 +1,4 @@
-package org.cytoscape.CytoCluster.internal;
+package org.cytoscape.DynamicCluster.internal.action;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -19,13 +19,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-import org.cytoscape.CytoCluster.internal.algorithm.Algorithm;
-import org.cytoscape.CytoCluster.internal.algorithm.EAGLE;
-import org.cytoscape.CytoCluster.internal.algorithm.FAGEC;
-import org.cytoscape.CytoCluster.internal.algorithm.HCPIN;
-import org.cytoscape.CytoCluster.internal.algorithm.IPCA;
-import org.cytoscape.CytoCluster.internal.algorithm.MCODE;
-import org.cytoscape.CytoCluster.internal.algorithm.OHPIN;
+import org.cytoscape.DynamicCluster.internal.ClusterUtil;
+import org.cytoscape.DynamicCluster.internal.CurrentParameters;
+import org.cytoscape.DynamicCluster.internal.ParameterSet;
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.application.events.SetCurrentNetworkEvent;
 import org.cytoscape.application.events.SetCurrentNetworkListener;
@@ -38,14 +34,12 @@ import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyNode;
 import org.cytoscape.model.CyRow;
 import org.cytoscape.model.CyTable;
-
 import org.cytoscape.service.util.CyServiceRegistrar;
 import org.cytoscape.view.model.CyNetworkView;
 import org.cytoscape.view.model.CyNetworkViewManager;
 import org.cytoscape.work.Task;
 import org.cytoscape.work.TaskManager;
 import org.cytoscape.work.TaskMonitor;
-
 import org.cytoscape.model.events.AddedEdgesEvent;
 import org.cytoscape.model.events.AddedEdgesListener;
 import org.cytoscape.model.events.AddedNodesEvent;
@@ -56,33 +50,28 @@ import org.cytoscape.model.events.RemovedNodesEvent;
 import org.cytoscape.model.events.RemovedNodesListener;
 
 /**
- * Classe to handle the action of clicking Button Analyze.
+ * Class to handle the action of clicking Button Analyze.
  */
-public class AnalyzeAction extends AbstractVizAction
+public class AnalyzeAction extends AbstractAction
 		implements SetCurrentNetworkListener, AddedNodesListener, AddedEdgesListener, RemovedNodesListener, RemovedEdgesListener {
-    final static int FIRST_TIME = 0;
-    final static int RESCORE = 1;
-    final static int REFIND = 2;
-    final static int FIND=3;
-    final static int INTERRUPTED = 4;
-    final static int FINDCLIQUE=5;
-    final static int CLIQUEBASED=6;
-    final static int EXISTS=7;
+   
     
-    private HashMap networkManager;//Keeps track of netowrks (id is key) and their algorithms 
     private boolean resultFound ;
-    private ResultPanel resultPanel;
+    final static int FIRST_TIME = 0;
     int analyze = FIRST_TIME;
+  
+    //int analyze = FIRST_TIME;
     int resultCounter = 0;
     ParameterSet  curParams;
-//    ClusterVisualStyle vistyle;
+
     private String interruptedMessage="";
     private int resultIndex;
     
     private final ClusterUtil clusterUtil;
     
-    private static final long serialVersionUID = 0x1385f3897d8b2b0L;
-	public static final int INTERRUPTION = 3;
+
+	//public static final int INTERRUPTION = 3;
+    
 	private final CyServiceRegistrar registrar;
 	private final TaskManager taskManager;
 	private Map<Long, Boolean>  dirtyNetworks;

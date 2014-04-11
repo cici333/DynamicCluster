@@ -1,23 +1,21 @@
-package org.cytoscape.CytoCluster.internal;
+package org.cytoscape.DynamicCluster.internal.action;
 
 
 import java.util.*;
 
-import org.cytoscape.CytoCluster.internal.MainPanel;
-import org.cytoscape.CytoCluster.internal.ResultPanel;
+import org.cytoscape.DynamicCluster.internal.panel.MainPanel;
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.application.swing.*;
 import org.cytoscape.view.model.CyNetworkViewManager;
 
-public abstract class AbstractVizAction extends AbstractCyAction
+public abstract class AbstractAction extends AbstractCyAction
 {
 
-	private static final long serialVersionUID = 0xbb92c5989a7b4b9L;
 	protected final CySwingApplication swingApplication;
 	protected final CyApplicationManager applicationManager;
 	protected final CyNetworkViewManager netViewManager;
 
-	public AbstractVizAction(String name, CyApplicationManager applicationManager, CySwingApplication swingApplication, CyNetworkViewManager netViewManager, String enableFor)
+	public AbstractAction(String name, CyApplicationManager applicationManager, CySwingApplication swingApplication, CyNetworkViewManager netViewManager, String enableFor)
 	{
 		super(name, applicationManager, enableFor, netViewManager);
 		this.applicationManager = applicationManager;
@@ -46,6 +44,7 @@ public abstract class AbstractVizAction extends AbstractCyAction
 		return null;
 	}
 
+	/*
 	protected Collection getResultPanels()
 	{
 		Collection panels = new ArrayList();
@@ -69,7 +68,7 @@ public abstract class AbstractVizAction extends AbstractCyAction
 
 		return null;
 	}
-
+*/
 	protected boolean isOpened()
 	{
 		return getMainPanel() != null;

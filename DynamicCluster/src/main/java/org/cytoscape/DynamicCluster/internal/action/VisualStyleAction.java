@@ -1,4 +1,4 @@
-package org.cytoscape.CytoCluster.internal;
+package org.cytoscape.DynamicCluster.internal.action;
 
 
 import java.awt.Component;
@@ -16,7 +16,7 @@ import org.cytoscape.view.model.CyNetworkViewManager;
 import org.cytoscape.view.vizmap.VisualMappingManager;
 import org.cytoscape.view.vizmap.VisualStyle;
 
-public class VisualStyleAction extends AbstractVizAction
+public class VisualStyleAction extends AbstractAction
   implements CytoPanelComponentSelectedListener
 {
   private static final long serialVersionUID = -6884537645922099638L;

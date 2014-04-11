@@ -1,4 +1,4 @@
-package org.cytoscape.CytoCluster.internal;
+package org.cytoscape.DynamicCluster.internal.task;
 
 import org.cytoscape.CytoCluster.internal.ClusterUtil;
 import org.cytoscape.CytoCluster.internal.algorithm.Algorithm;
